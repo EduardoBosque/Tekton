@@ -1,0 +1,19 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '13.0'
+
+target 'XBike' do
+  use_frameworks!
+    pod 'GoogleMaps', '7.0.0'
+
+  # Pods for XBike
+
+  target 'XBikeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'XBikeUITests' do
+    # Pods for testing
+  end
+
+end
