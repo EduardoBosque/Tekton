@@ -17,6 +17,10 @@
 		720AD6EC28A6F75700FF6F5D /* XBikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720AD6EB28A6F75700FF6F5D /* XBikeTests.swift */; };
 		720AD6F628A6F75700FF6F5D /* XBikeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720AD6F528A6F75700FF6F5D /* XBikeUITests.swift */; };
 		720AD6F828A6F75700FF6F5D /* XBikeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720AD6F728A6F75700FF6F5D /* XBikeUITestsLaunchTests.swift */; };
+		724B092B28A847E200F07692 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B092A28A847E200F07692 /* Constants.swift */; };
+		724B093528A8759100F07692 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B093428A8759100F07692 /* Utilities.swift */; };
+		724B093828A9998B00F07692 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B093628A9998B00F07692 /* AlertViewController.swift */; };
+		724B093928A9998B00F07692 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724B093728A9998B00F07692 /* AlertViewController.xib */; };
 		9B78CAFEA2BA7F3480E6BBBA /* Pods_XBike_XBikeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833A204F3F672BAC12BC2B73 /* Pods_XBike_XBikeUITests.framework */; };
 		F0AEB292D512A05A87FE2AC3 /* Pods_XBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F7DAEB24FEAAEC79A7E86A /* Pods_XBike.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +59,10 @@
 		720AD6F128A6F75700FF6F5D /* XBikeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XBikeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		720AD6F528A6F75700FF6F5D /* XBikeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBikeUITests.swift; sourceTree = "<group>"; };
 		720AD6F728A6F75700FF6F5D /* XBikeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBikeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		724B092A28A847E200F07692 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		724B093428A8759100F07692 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		724B093628A9998B00F07692 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		724B093728A9998B00F07692 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		833A204F3F672BAC12BC2B73 /* Pods_XBike_XBikeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBike_XBikeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9842A4979F1F4C44194C8649 /* Pods-XBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBikeTests.release.xcconfig"; path = "Target Support Files/Pods-XBikeTests/Pods-XBikeTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBB05EAE80455B5A542371A8 /* Pods_XBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +124,10 @@
 		720AD6D328A6F75500FF6F5D /* XBike */ = {
 			isa = PBXGroup;
 			children = (
+				724B092F28A8487900F07692 /* ViewModel */,
+				724B092E28A8486B00F07692 /* View */,
+				724B092D28A8486300F07692 /* Model */,
+				724B092928A847CD00F07692 /* Utilities */,
 				720AD6D428A6F75500FF6F5D /* AppDelegate.swift */,
 				720AD6D628A6F75500FF6F5D /* SceneDelegate.swift */,
 				720AD6D828A6F75500FF6F5D /* ViewController.swift */,
@@ -144,6 +156,38 @@
 			path = XBikeUITests;
 			sourceTree = "<group>";
 		};
+		724B092928A847CD00F07692 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				724B092A28A847E200F07692 /* Constants.swift */,
+				724B093428A8759100F07692 /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		724B092D28A8486300F07692 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		724B092E28A8486B00F07692 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				724B093628A9998B00F07692 /* AlertViewController.swift */,
+				724B093728A9998B00F07692 /* AlertViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		724B092F28A8487900F07692 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		919125BFC0BF9B2951976A2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +208,6 @@
 				FD978DEBBDC6B875801FD589 /* Pods-XBikeTests.debug.xcconfig */,
 				9842A4979F1F4C44194C8649 /* Pods-XBikeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -179,7 +222,7 @@
 				720AD6CD28A6F75500FF6F5D /* Sources */,
 				720AD6CE28A6F75500FF6F5D /* Frameworks */,
 				720AD6CF28A6F75500FF6F5D /* Resources */,
-				DDC476C23DDEC29BAA12AF07 /* [CP] Copy Pods Resources */,
+				999AE917238F7BBDBFA18C47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,7 +260,7 @@
 				720AD6ED28A6F75700FF6F5D /* Sources */,
 				720AD6EE28A6F75700FF6F5D /* Frameworks */,
 				720AD6EF28A6F75700FF6F5D /* Resources */,
-				B9E37CA8B996F1D6D06A206A /* [CP] Copy Pods Resources */,
+				B87A70D72C55F853B5F8E0B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,6 +323,7 @@
 				720AD6E128A6F75700FF6F5D /* LaunchScreen.storyboard in Resources */,
 				720AD6DE28A6F75700FF6F5D /* Assets.xcassets in Resources */,
 				720AD6DC28A6F75500FF6F5D /* Main.storyboard in Resources */,
+				724B093928A9998B00F07692 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,24 +388,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B9E37CA8B996F1D6D06A206A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DDC476C23DDEC29BAA12AF07 /* [CP] Copy Pods Resources */ = {
+		999AE917238F7BBDBFA18C47 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,6 +403,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XBike/Pods-XBike-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B87A70D72C55F853B5F8E0B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD7DB55FC0AF081A9A2E015A /* [CP] Check Pods Manifest.lock */ = {
@@ -408,8 +452,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				720AD6D928A6F75500FF6F5D /* ViewController.swift in Sources */,
+				724B093828A9998B00F07692 /* AlertViewController.swift in Sources */,
 				720AD6D528A6F75500FF6F5D /* AppDelegate.swift in Sources */,
 				720AD6D728A6F75500FF6F5D /* SceneDelegate.swift in Sources */,
+				724B093528A8759100F07692 /* Utilities.swift in Sources */,
+				724B092B28A847E200F07692 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +619,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -592,7 +640,7 @@
 				INFOPLIST_FILE = XBike/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -621,7 +669,7 @@
 				INFOPLIST_FILE = XBike/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
