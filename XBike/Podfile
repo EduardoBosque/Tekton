@@ -5,8 +5,6 @@ target 'XBike' do
   use_frameworks!
     pod 'GoogleMaps', '7.0.0'
 
-  # Pods for XBike
-
   target 'XBikeTests' do
     inherit! :search_paths
     # Pods for testing

@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        pin.isHidden = true
         
         getLocation()
     }
@@ -27,15 +28,15 @@ class ViewController: UIViewController {
         let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 15.0)
         mapView.camera = camera
         mapView.clear()
-        showMarker(position: camera.target)
         mapView.settings.myLocationButton = true
+        reverseGeocode(coordinate: location)
     }
         
-    func showMarker(position: CLLocationCoordinate2D){
+    func showMarker(position: CLLocationCoordinate2D, addressInformation: GMSAddress){
         let marker = GMSMarker()
         marker.position = position
-        marker.title = "Palo Alto"
-        marker.snippet = "San Francisco"
+        marker.title = addressInformation.lines?.last
+        marker.snippet = addressInformation.locality
         marker.map = mapView
     }
     
@@ -43,64 +44,82 @@ class ViewController: UIViewController {
         let geocoder = GMSGeocoder()
 
         geocoder.reverseGeocodeCoordinate(coordinate) {[weak self] response, error in
-            guard let address = response?.firstResult(),
-                  let lines = address.lines else {
+            guard let address = response?.firstResult() else {
                 return
             }
             
-            self?.showMarker(position: coordinate)
+            self?.showMarker(position: coordinate, addressInformation: address)
             self?.nextLocation = coordinate
-//            print(lines.joined(separator: "\n"))
         }
     }
     
-    func route(position: GMSCameraPosition){
+    func route(position: CLLocationCoordinate2D){
         let origin = "\(locationManager.location?.coordinate.latitude ?? 0),\(locationManager.location?.coordinate.longitude ?? 0)"
-        let destination = "\(position.target.latitude),\(position.target.longitude)"
+        let destination = "\(position.latitude),\(position.longitude)"
 
         let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=\(kGoogleMapsAPI)"
 
         let url = URL(string: urlString)
-        URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-            if(error != nil){
-                print("error")
-            } else {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
-                    let routes = json["routes"] as! NSArray
-//                            self.mapView.clear()
-                        
+            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                if(error != nil){
+                    print("error")
+                }else{
+                    do{
+                        let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
+                        let routes = json["routes"] as! NSArray
 
-                    OperationQueue.main.addOperation({
-                        for route in routes {
-                            let routeOverviewPolyline:NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
+                        for route in routes
+                        {
+                            let routeOverviewPolyline: NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
                             let points = routeOverviewPolyline.object(forKey: "points")
                             let path = GMSPath.init(fromEncodedPath: points! as! String)
                             let polyline = GMSPolyline.init(path: path)
                             polyline.strokeWidth = 3
 
-                            let bounds = GMSCoordinateBounds(path: path!)
-                            self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
 
+                            let legs: Array = (route as! NSDictionary).value(forKey: "legs") as! Array<Any>
+                            let distance = (legs.first as AnyObject).value(forKey: "distance") as! Dictionary<String,Any>
+                            print(distance["text"] ?? "")
+                            
                             polyline.map = self.mapView
 
                         }
-                    })
-                } catch let error as NSError{
-                    print("error:\(error)")
+                    } catch let error as NSError{
+                        print("error:\(error)")
+                    }
                 }
-            }
-        }).resume()
+            }).resume()
+    }
+    
+    @IBAction func addTapped(_ sender: Any) {
+        pin.isHidden = false
     }
 }
 
 extension ViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        reverseGeocode(coordinate: position.target)
+        guard let location: CLLocationCoordinate2D = locationManager.location?.coordinate else { return }
+        nextLocation = position.target
+        
+        if Utilities.distanceBetween(startPosition: location, destinationPosition: nextLocation) > 30 && pin.isHidden == false {
+            reverseGeocode(coordinate: position.target)
+            route(position: position.target)
+            pin.isHidden = true
+            
+            let alert = AlertViewController()
+            alert.initialAlert.frame = alert.initialAlert.bounds
+            self.view.addSubview(alert.initialAlert)
+            self.addChild(alert)
+            alert.didMove(toParent: self)
+            
+//            alert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//            self.present(alert, animated: true)
+        }
     }
 }
 
 extension ViewController: CLLocationManagerDelegate {
+    
     func getLocation() {
         self.locationManager.requestAlwaysAuthorization()
 
@@ -122,15 +141,10 @@ extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         
-        let userLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
-        let destinationLocation = CLLocation(latitude: nextLocation.latitude, longitude: nextLocation.longitude)
-        let distance = userLocation.distance(from: destinationLocation)
-        
-        if Utilities.roundDistance(x: distance) > 30 {
-            print("Distancia: \(Utilities.roundDistance(x: distance))")
+        if Utilities.distanceBetween(startPosition: location, destinationPosition: nextLocation) > 30 {
             nextLocation = location
-            locationManager.stopUpdatingLocation()
-            
         }
+        
+        locationManager.stopUpdatingLocation()
     }
 }
