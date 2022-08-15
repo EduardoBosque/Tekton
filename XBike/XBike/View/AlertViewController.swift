@@ -15,7 +15,6 @@ class AlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initialAlert.
     }
 
     @IBAction func startTapped(_ sender: Any) {
