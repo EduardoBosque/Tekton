@@ -107,14 +107,8 @@ extension ViewController: GMSMapViewDelegate {
             pin.isHidden = true
             
             let alert = AlertViewController()
-            alert.view.frame = self.view.bounds
-            self.view.addSubview(alert.view)
-            self.addChild(alert)
-            alert.didMove(toParent: self)
-            
-            
-//            alert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//            self.present(alert, animated: true)
+            alert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(alert, animated: true)
         }
     }
 }
