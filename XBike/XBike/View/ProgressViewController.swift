@@ -11,6 +11,18 @@ class ProgressViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let employeeData = UserDefaults.standard.data(forKey: "routes") {
+            do {
+                let employeeObject = try JSONDecoder().decode(Routes.self, from: employeeData)
+
+                print(employeeObject.time)
+                print(employeeObject.distance)
+
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
 

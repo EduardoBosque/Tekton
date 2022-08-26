@@ -22,6 +22,7 @@
 		724B093828A9998B00F07692 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B093628A9998B00F07692 /* AlertViewController.swift */; };
 		724B093928A9998B00F07692 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724B093728A9998B00F07692 /* AlertViewController.xib */; };
 		729F6C7028A9AB9D00277473 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729F6C6F28A9AB9D00277473 /* ProgressViewController.swift */; };
+		72B460FC28B96D210063235F /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B460FB28B96D210063235F /* Routes.swift */; };
 		9B78CAFEA2BA7F3480E6BBBA /* Pods_XBike_XBikeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833A204F3F672BAC12BC2B73 /* Pods_XBike_XBikeUITests.framework */; };
 		F0AEB292D512A05A87FE2AC3 /* Pods_XBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F7DAEB24FEAAEC79A7E86A /* Pods_XBike.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		724B093628A9998B00F07692 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		724B093728A9998B00F07692 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		729F6C6F28A9AB9D00277473 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		72B460FB28B96D210063235F /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		833A204F3F672BAC12BC2B73 /* Pods_XBike_XBikeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBike_XBikeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9842A4979F1F4C44194C8649 /* Pods-XBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBikeTests.release.xcconfig"; path = "Target Support Files/Pods-XBikeTests/Pods-XBikeTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBB05EAE80455B5A542371A8 /* Pods_XBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 		724B092D28A8486300F07692 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				72B460FB28B96D210063235F /* Routes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -226,7 +229,6 @@
 				720AD6CE28A6F75500FF6F5D /* Frameworks */,
 				720AD6CF28A6F75500FF6F5D /* Resources */,
 				999AE917238F7BBDBFA18C47 /* [CP] Copy Pods Resources */,
-				0E7AB90BF3D040A8D71E482F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,7 +267,6 @@
 				720AD6EE28A6F75700FF6F5D /* Frameworks */,
 				720AD6EF28A6F75700FF6F5D /* Resources */,
 				B87A70D72C55F853B5F8E0B0 /* [CP] Copy Pods Resources */,
-				ED720346EC9DBE9FD6DADF33 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -349,23 +350,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E7AB90BF3D040A8D71E482F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XBike/Pods-XBike-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XBike/Pods-XBike-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XBike/Pods-XBike-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4AA73487A40C58A7C7FACE63 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,23 +428,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ED720346EC9DBE9FD6DADF33 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XBike-XBikeUITests/Pods-XBike-XBikeUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FD7DB55FC0AF081A9A2E015A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -491,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				720AD6D928A6F75500FF6F5D /* ViewController.swift in Sources */,
+				72B460FC28B96D210063235F /* Routes.swift in Sources */,
 				724B093828A9998B00F07692 /* AlertViewController.swift in Sources */,
 				720AD6D528A6F75500FF6F5D /* AppDelegate.swift in Sources */,
 				729F6C7028A9AB9D00277473 /* ProgressViewController.swift in Sources */,
@@ -588,6 +556,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -648,6 +617,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -683,6 +653,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -712,6 +683,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

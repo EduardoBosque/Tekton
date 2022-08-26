@@ -7,5 +7,5 @@
 
 import Foundation
 
-
+let kGoogleMapsAPI = "AIzaSyAlfga-I5pqLKviLlr4vQfz9MZJztgrcPs"
 

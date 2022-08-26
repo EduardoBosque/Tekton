@@ -21,4 +21,13 @@ struct Utilities {
         
         return roundDistance(x: distance)
     }
+    
+    static func urlRoute(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) -> String {
+        let origin = "\(origin.latitude),\(origin.longitude)"
+        let destination = "\(destination.latitude),\(destination.longitude)"
+
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=\(kGoogleMapsAPI)"
+        
+        return url
+    }
 }

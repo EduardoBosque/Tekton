@@ -12,10 +12,11 @@ class ViewController: UIViewController {
     
     @IBOutlet fileprivate weak var mapView: GMSMapView!
     @IBOutlet weak var pin: UIImageView!
-    
+        
     let locationManager = CLLocationManager()
     var nextLocation = CLLocationCoordinate2D()
-        
+    var distance = String()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -54,41 +55,43 @@ class ViewController: UIViewController {
     }
     
     func route(position: CLLocationCoordinate2D){
-        let origin = "\(locationManager.location?.coordinate.latitude ?? 0),\(locationManager.location?.coordinate.longitude ?? 0)"
-        let destination = "\(position.latitude),\(position.longitude)"
 
-        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=\(kGoogleMapsAPI)"
-
+        guard let origin = locationManager.location?.coordinate else {
+            return
+        }
+        
+        let urlString = Utilities.urlRoute(origin: origin, destination: position)
         let url = URL(string: urlString)
-            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-                if(error != nil){
-                    print("error")
-                }else{
-                    do{
-                        let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
-                        let routes = json["routes"] as! NSArray
+        
+        URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+            if(error != nil){
+                print("error")
+            }else{
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
+                    let routes = json["routes"] as! NSArray
 
-                        for route in routes
-                        {
-                            let routeOverviewPolyline: NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
-                            let points = routeOverviewPolyline.object(forKey: "points")
-                            let path = GMSPath.init(fromEncodedPath: points! as! String)
-                            let polyline = GMSPolyline.init(path: path)
-                            polyline.strokeWidth = 3
+                    for route in routes
+                    {
+                        let routeOverviewPolyline: NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
+                        let points = routeOverviewPolyline.object(forKey: "points")
+                        let path = GMSPath.init(fromEncodedPath: points! as! String)
+                        let polyline = GMSPolyline.init(path: path)
+                        polyline.strokeWidth = 3
 
 
-                            let legs: Array = (route as! NSDictionary).value(forKey: "legs") as! Array<Any>
-                            let distance = (legs.first as AnyObject).value(forKey: "distance") as! Dictionary<String,Any>
-                            print(distance["text"] ?? "")
+                        let legs: Array = (route as! NSDictionary).value(forKey: "legs") as! Array<Any>
+                        let distance = (legs.first as AnyObject).value(forKey: "distance") as! Dictionary<String,Any>
+                        self.distance = distance["text"] as! String
                             
-                            polyline.map = self.mapView
+                        polyline.map = self.mapView
 
-                        }
-                    } catch let error as NSError{
-                        print("error:\(error)")
                     }
+                } catch let error as NSError{
+                    print("error:\(error)")
                 }
-            }).resume()
+            }
+        }).resume()
     }
     
     @IBAction func addTapped(_ sender: Any) {
@@ -107,8 +110,23 @@ extension ViewController: GMSMapViewDelegate {
             pin.isHidden = true
             
             let alert = AlertViewController()
-            alert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            self.present(alert, animated: true)
+            addChild(alert)
+            alert.view.frame = .zero
+            self.view.addSubview(alert.initialAlert)
+            alert.didMove(toParent: self)
+        
+            willMove(toParent: nil)
+            alert.view.removeFromSuperview()
+            removeFromParent()
+                        
+            alert.initialAlert.translatesAutoresizingMaskIntoConstraints = false
+            let bottom = alert.initialAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+            let center = alert.initialAlert.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            bottom.isActive = true
+            center.isActive = true
+            
+            alert.setDelegateTo(delegate: self)
+
         }
     }
 }
@@ -141,5 +159,16 @@ extension ViewController: CLLocationManagerDelegate {
         }
         
         locationManager.stopUpdatingLocation()
+    }
+}
+
+extension ViewController: SaveInformation {
+    func save(time: String) {
+        do {
+            let routes = try JSONEncoder().encode(Routes(time: time, distance: distance, origin: "", destination: ""))
+            UserDefaults.standard.set(routes, forKey: "routes")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
