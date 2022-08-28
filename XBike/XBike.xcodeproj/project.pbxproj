@@ -19,10 +19,12 @@
 		720AD6F828A6F75700FF6F5D /* XBikeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720AD6F728A6F75700FF6F5D /* XBikeUITestsLaunchTests.swift */; };
 		724B092B28A847E200F07692 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B092A28A847E200F07692 /* Constants.swift */; };
 		724B093528A8759100F07692 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B093428A8759100F07692 /* Utilities.swift */; };
-		724B093828A9998B00F07692 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B093628A9998B00F07692 /* AlertViewController.swift */; };
-		724B093928A9998B00F07692 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724B093728A9998B00F07692 /* AlertViewController.xib */; };
+		724B093828A9998B00F07692 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B093628A9998B00F07692 /* CounterViewController.swift */; };
+		724B093928A9998B00F07692 /* CounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724B093728A9998B00F07692 /* CounterViewController.xib */; };
 		729F6C7028A9AB9D00277473 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729F6C6F28A9AB9D00277473 /* ProgressViewController.swift */; };
 		72B460FC28B96D210063235F /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B460FB28B96D210063235F /* Routes.swift */; };
+		72B460FF28B974ED0063235F /* RoutesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B460FD28B974ED0063235F /* RoutesTableViewCell.swift */; };
+		72B4610028B974ED0063235F /* RoutesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B460FE28B974ED0063235F /* RoutesTableViewCell.xib */; };
 		9B78CAFEA2BA7F3480E6BBBA /* Pods_XBike_XBikeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833A204F3F672BAC12BC2B73 /* Pods_XBike_XBikeUITests.framework */; };
 		F0AEB292D512A05A87FE2AC3 /* Pods_XBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F7DAEB24FEAAEC79A7E86A /* Pods_XBike.framework */; };
 /* End PBXBuildFile section */
@@ -63,10 +65,13 @@
 		720AD6F728A6F75700FF6F5D /* XBikeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBikeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		724B092A28A847E200F07692 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		724B093428A8759100F07692 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		724B093628A9998B00F07692 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		724B093728A9998B00F07692 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		724B093628A9998B00F07692 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
+		724B093728A9998B00F07692 /* CounterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterViewController.xib; sourceTree = "<group>"; };
 		729F6C6F28A9AB9D00277473 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		72B460FB28B96D210063235F /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		72B460FD28B974ED0063235F /* RoutesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesTableViewCell.swift; sourceTree = "<group>"; };
+		72B460FE28B974ED0063235F /* RoutesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutesTableViewCell.xib; sourceTree = "<group>"; };
+		72B4610328BAD40C0063235F /* abel-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "abel-regular.ttf"; sourceTree = "<group>"; };
 		833A204F3F672BAC12BC2B73 /* Pods_XBike_XBikeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBike_XBikeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9842A4979F1F4C44194C8649 /* Pods-XBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBikeTests.release.xcconfig"; path = "Target Support Files/Pods-XBikeTests/Pods-XBikeTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBB05EAE80455B5A542371A8 /* Pods_XBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,7 +139,6 @@
 				724B092928A847CD00F07692 /* Utilities */,
 				720AD6D428A6F75500FF6F5D /* AppDelegate.swift */,
 				720AD6D628A6F75500FF6F5D /* SceneDelegate.swift */,
-				720AD6D828A6F75500FF6F5D /* ViewController.swift */,
 				720AD6DA28A6F75500FF6F5D /* Main.storyboard */,
 				720AD6DD28A6F75700FF6F5D /* Assets.xcassets */,
 				720AD6DF28A6F75700FF6F5D /* LaunchScreen.storyboard */,
@@ -163,6 +167,7 @@
 		724B092928A847CD00F07692 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				72B4610228BAD3FE0063235F /* Font */,
 				724B092A28A847E200F07692 /* Constants.swift */,
 				724B093428A8759100F07692 /* Utilities.swift */,
 			);
@@ -180,9 +185,11 @@
 		724B092E28A8486B00F07692 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				724B093628A9998B00F07692 /* AlertViewController.swift */,
-				724B093728A9998B00F07692 /* AlertViewController.xib */,
+				72B4610128BAD08E0063235F /* Cell */,
+				724B093628A9998B00F07692 /* CounterViewController.swift */,
+				724B093728A9998B00F07692 /* CounterViewController.xib */,
 				729F6C6F28A9AB9D00277473 /* ProgressViewController.swift */,
+				720AD6D828A6F75500FF6F5D /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +199,23 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		72B4610128BAD08E0063235F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				72B460FD28B974ED0063235F /* RoutesTableViewCell.swift */,
+				72B460FE28B974ED0063235F /* RoutesTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		72B4610228BAD3FE0063235F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				72B4610328BAD40C0063235F /* abel-regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		919125BFC0BF9B2951976A2A /* Frameworks */ = {
@@ -329,7 +353,8 @@
 				720AD6E128A6F75700FF6F5D /* LaunchScreen.storyboard in Resources */,
 				720AD6DE28A6F75700FF6F5D /* Assets.xcassets in Resources */,
 				720AD6DC28A6F75500FF6F5D /* Main.storyboard in Resources */,
-				724B093928A9998B00F07692 /* AlertViewController.xib in Resources */,
+				724B093928A9998B00F07692 /* CounterViewController.xib in Resources */,
+				72B4610028B974ED0063235F /* RoutesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,9 +482,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B460FF28B974ED0063235F /* RoutesTableViewCell.swift in Sources */,
 				720AD6D928A6F75500FF6F5D /* ViewController.swift in Sources */,
 				72B460FC28B96D210063235F /* Routes.swift in Sources */,
-				724B093828A9998B00F07692 /* AlertViewController.swift in Sources */,
+				724B093828A9998B00F07692 /* CounterViewController.swift in Sources */,
 				720AD6D528A6F75500FF6F5D /* AppDelegate.swift in Sources */,
 				729F6C7028A9AB9D00277473 /* ProgressViewController.swift in Sources */,
 				720AD6D728A6F75500FF6F5D /* SceneDelegate.swift in Sources */,

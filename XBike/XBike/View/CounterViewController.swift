@@ -11,13 +11,13 @@ protocol SaveInformation: AnyObject {
     func save(time: String)
 }
 
-class AlertViewController: UIViewController {
+class CounterViewController: UIViewController {
 
     @IBOutlet weak var initialAlert: UIView!
     @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var messageView: UIView!
     
     private weak var delegate: SaveInformation?
-    var count = 10
     var countUpClock: Timer?
     
     private var formatter: DateComponentsFormatter = {
@@ -51,6 +51,11 @@ class AlertViewController: UIViewController {
     @IBAction func stopTapped(_ sender: Any) {        
         countUpClock?.invalidate()
         self.initialAlert.removeFromSuperview()
-        self.delegate?.save(time: self.timeLbl.text ?? "")
+        self.delegate?.save(time: self.timeLbl.text ?? kEmptyString)
     }
+    
+    @IBAction func agreeTapped(_ sender: Any) {
+        self.messageView.removeFromSuperview()
+    }
+    
 }

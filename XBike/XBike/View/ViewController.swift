@@ -15,7 +15,9 @@ class ViewController: UIViewController {
         
     let locationManager = CLLocationManager()
     var nextLocation = CLLocationCoordinate2D()
-    var distance = String()
+    var distance = kEmptyString
+    var origin = kEmptyString
+    var destination = kEmptyString
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,7 @@ class ViewController: UIViewController {
                 return
             }
             
+            self?.destination = address.lines?.last ?? kEmptyString
             self?.showMarker(position: coordinate, addressInformation: address)
             self?.nextLocation = coordinate
         }
@@ -71,22 +74,24 @@ class ViewController: UIViewController {
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
                     let routes = json["routes"] as! NSArray
 
-                    for route in routes
-                    {
-                        let routeOverviewPolyline: NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
-                        let points = routeOverviewPolyline.object(forKey: "points")
-                        let path = GMSPath.init(fromEncodedPath: points! as! String)
-                        let polyline = GMSPolyline.init(path: path)
-                        polyline.strokeWidth = 3
+                    OperationQueue.main.addOperation({
 
+                        for route in routes
+                        {
+                            let routeOverviewPolyline: NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
+                            let points = routeOverviewPolyline.object(forKey: "points")
+                            let path = GMSPath.init(fromEncodedPath: points! as! String)
+                            let polyline = GMSPolyline.init(path: path)
+                            polyline.strokeWidth = 3
 
-                        let legs: Array = (route as! NSDictionary).value(forKey: "legs") as! Array<Any>
-                        let distance = (legs.first as AnyObject).value(forKey: "distance") as! Dictionary<String,Any>
-                        self.distance = distance["text"] as! String
+                            let legs: Array = (route as! NSDictionary).value(forKey: "legs") as! Array<Any>
+                            let distance = (legs.first as AnyObject).value(forKey: "distance") as! Dictionary<String,Any>
+                            self.distance = distance["text"] as! String
                             
-                        polyline.map = self.mapView
+                            polyline.map = self.mapView
 
-                    }
+                        }
+                    })
                 } catch let error as NSError{
                     print("error:\(error)")
                 }
@@ -109,7 +114,7 @@ extension ViewController: GMSMapViewDelegate {
             route(position: position.target)
             pin.isHidden = true
             
-            let alert = AlertViewController()
+            let alert = CounterViewController()
             addChild(alert)
             alert.view.frame = .zero
             self.view.addSubview(alert.initialAlert)
@@ -135,7 +140,8 @@ extension ViewController: CLLocationManagerDelegate {
     
     func getLocation() {
         self.locationManager.requestAlwaysAuthorization()
-
+        let geocoder = GMSGeocoder()
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -148,6 +154,13 @@ extension ViewController: CLLocationManagerDelegate {
             
             let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             configureLocation(location: location)
+                        
+            geocoder.reverseGeocodeCoordinate(location) {[weak self] response, error in
+                guard let address = response?.firstResult() else {
+                    return
+                }
+                self?.origin = address.lines?.last ?? kEmptyString
+            }
         }
     }
     
@@ -164,11 +177,54 @@ extension ViewController: CLLocationManagerDelegate {
 
 extension ViewController: SaveInformation {
     func save(time: String) {
-        do {
-            let routes = try JSONEncoder().encode(Routes(time: time, distance: distance, origin: "", destination: ""))
-            UserDefaults.standard.set(routes, forKey: "routes")
-        } catch {
-            print(error.localizedDescription)
+        let route = Routes(time: time, distance: distance, origin: origin, destination: destination)
+        let routes = [route]
+
+        saveRoutes(route: routes)
+        
+        let alert = CounterViewController()
+        addChild(alert)
+        alert.view.frame = .zero
+        self.view.addSubview(alert.messageView)
+        alert.didMove(toParent: self)
+    
+        willMove(toParent: nil)
+        alert.view.removeFromSuperview()
+        removeFromParent()
+        
+        alert.messageView.translatesAutoresizingMaskIntoConstraints = false
+        let centerX = alert.messageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        let centerY = alert.messageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        centerX.isActive = true
+        centerY.isActive = true
+    }
+}
+
+extension ViewController {
+    
+    func saveRoutes(route: [Routes]) {
+        let decoder = JSONDecoder()
+        let encoder = JSONEncoder()
+
+        if let data = UserDefaults.standard.data(forKey: kRoutes) {
+            do {
+                var routes = try decoder.decode([Routes].self, from: data)
+                routes.append(route.first!)
+                let data = try encoder.encode(routes)
+                UserDefaults.standard.set(data, forKey: kRoutes)
+
+            } catch {
+                print("Unable to Decode (\(error))")
+            }
+        } else {
+            do {
+                let data = try encoder.encode(route)
+                UserDefaults.standard.set(data, forKey: kRoutes)
+                
+            } catch {
+                print("Unable to Encode Array (\(error))")
+            }
+
         }
     }
 }

@@ -8,10 +8,16 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="abel-regular.ttf">
+            <string>Abel-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertViewController" customModule="XBike" customModuleProvider="target">
             <connections>
                 <outlet property="initialAlert" destination="Lma-iI-Q3o" id="jkA-jB-KYz"/>
+                <outlet property="messageView" destination="59O-dr-RP2" id="yj1-YJ-nms"/>
                 <outlet property="timeLbl" destination="M2F-eR-Nl9" id="e5m-kt-lU4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -38,7 +44,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBP-2T-5es">
                                     <rect key="frame" x="154" y="0.0" width="154" height="56"/>
-                                    <color key="tintColor" red="1" green="0.5568627451" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Stop"/>
                                     <connections>
@@ -55,7 +61,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="XtK-km-1HN"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -74,10 +80,49 @@
                         <constraint firstItem="M2F-eR-Nl9" firstAttribute="top" secondItem="Lma-iI-Q3o" secondAttribute="top" constant="15" id="ssU-u3-3HX"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59O-dr-RP2">
+                    <rect key="frame" x="73" y="119" width="268" height="197"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-7c-Xa6">
+                            <rect key="frame" x="15" y="10" width="238" height="69"/>
+                            <string key="text">Your progress has been
+correctly stored!</string>
+                            <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0Z-UB-TEX">
+                            <rect key="frame" x="83.5" y="144" width="101" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="31" id="G5G-MT-lc2"/>
+                                <constraint firstAttribute="width" constant="101" id="Gb6-e3-qwJ"/>
+                            </constraints>
+                            <color key="tintColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Ok"/>
+                            <connections>
+                                <action selector="agreeTapped:" destination="-1" eventType="touchUpInside" id="vng-9J-ljy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="268" id="4yo-8o-7pZ"/>
+                        <constraint firstAttribute="bottom" secondItem="G0Z-UB-TEX" secondAttribute="bottom" constant="22" id="84G-an-ARd"/>
+                        <constraint firstItem="cF0-7c-Xa6" firstAttribute="leading" secondItem="59O-dr-RP2" secondAttribute="leading" constant="15" id="8kU-3k-69b"/>
+                        <constraint firstAttribute="trailing" secondItem="cF0-7c-Xa6" secondAttribute="trailing" constant="15" id="DYP-v0-s4w"/>
+                        <constraint firstItem="G0Z-UB-TEX" firstAttribute="top" secondItem="cF0-7c-Xa6" secondAttribute="bottom" priority="750" constant="65" id="UKH-00-d3b"/>
+                        <constraint firstAttribute="height" constant="197" id="WXv-02-EQp"/>
+                        <constraint firstItem="cF0-7c-Xa6" firstAttribute="top" secondItem="59O-dr-RP2" secondAttribute="top" constant="10" id="nTa-Gz-20J"/>
+                        <constraint firstItem="G0Z-UB-TEX" firstAttribute="centerX" secondItem="59O-dr-RP2" secondAttribute="centerX" id="y9V-Dg-hUU"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Lma-iI-Q3o" secondAttribute="bottom" constant="85" id="Fl1-Oc-ksW"/>
+                <constraint firstItem="59O-dr-RP2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Na8-Dx-FK8"/>
+                <constraint firstItem="59O-dr-RP2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="75" id="ZOB-NN-KlG"/>
                 <constraint firstItem="Lma-iI-Q3o" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i2a-UE-O4P"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="93.75"/>

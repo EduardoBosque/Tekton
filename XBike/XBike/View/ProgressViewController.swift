@@ -9,31 +9,58 @@ import UIKit
 
 class ProgressViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var routes = [Routes]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let employeeData = UserDefaults.standard.data(forKey: "routes") {
+        configureVC()
+    }
+    
+    func configureVC() {
+        
+        if let data = UserDefaults.standard.data(forKey: kRoutes) {
             do {
-                let employeeObject = try JSONDecoder().decode(Routes.self, from: employeeData)
+                let decoder = JSONDecoder()
+                routes = try decoder.decode([Routes].self, from: data)
 
-                print(employeeObject.time)
-                print(employeeObject.distance)
-
+                self.tableView.register(UINib(nibName: RoutesTableViewCell.name, bundle: nil), forCellReuseIdentifier: RoutesTableViewCell.name)
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.tableView.reloadData()
+                
             } catch {
-                print(error.localizedDescription)
+                print("Unable to Decode (\(error))")
             }
         }
     }
+}
+
+extension ProgressViewController: UITableViewDelegate, UITableViewDataSource {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Value: \(routes[indexPath.row])")
     }
-    */
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return routes.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(RoutesTableViewCell.self)", for: indexPath) as! RoutesTableViewCell
+        cell.timeLbl?.text = routes[indexPath.row].time
+        cell.distanceLbl?.text = routes[indexPath.row].distance
+        cell.origin?.text = routes[indexPath.row].origin
+        cell.destination?.text = routes[indexPath.row].destination
+        
+        return cell
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 
 }

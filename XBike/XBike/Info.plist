@@ -27,5 +27,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>abel-regular.ttf</string>
+	</array>
 </dict>
 </plist>
