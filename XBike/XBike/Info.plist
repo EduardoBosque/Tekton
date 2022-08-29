@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>abel-regular.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -27,9 +25,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>abel-regular.ttf</string>
-	</array>
 </dict>
 </plist>

@@ -25,6 +25,15 @@
 		72B460FC28B96D210063235F /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B460FB28B96D210063235F /* Routes.swift */; };
 		72B460FF28B974ED0063235F /* RoutesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B460FD28B974ED0063235F /* RoutesTableViewCell.swift */; };
 		72B4610028B974ED0063235F /* RoutesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B460FE28B974ED0063235F /* RoutesTableViewCell.xib */; };
+		72B4610A28BB965B0063235F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4610828BB965B0063235F /* OnboardingViewController.swift */; };
+		72B4610B28BB965B0063235F /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B4610928BB965B0063235F /* OnboardingViewController.xib */; };
+		72B4611128BCCFBA0063235F /* PageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4610F28BCCFBA0063235F /* PageOneViewController.swift */; };
+		72B4611228BCCFBA0063235F /* PageOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B4611028BCCFBA0063235F /* PageOneViewController.xib */; };
+		72B4611528BCD7FC0063235F /* PageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4611328BCD7FC0063235F /* PageTwoViewController.swift */; };
+		72B4611628BCD7FC0063235F /* PageTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B4611428BCD7FC0063235F /* PageTwoViewController.xib */; };
+		72B4611B28BCD8790063235F /* PageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4611928BCD8790063235F /* PageThreeViewController.swift */; };
+		72B4611C28BCD8790063235F /* PageThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B4611A28BCD8790063235F /* PageThreeViewController.xib */; };
+		72B4612028BCEAD80063235F /* RouteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4611F28BCEAD80063235F /* RouteController.swift */; };
 		9B78CAFEA2BA7F3480E6BBBA /* Pods_XBike_XBikeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833A204F3F672BAC12BC2B73 /* Pods_XBike_XBikeUITests.framework */; };
 		F0AEB292D512A05A87FE2AC3 /* Pods_XBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F7DAEB24FEAAEC79A7E86A /* Pods_XBike.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +81,15 @@
 		72B460FD28B974ED0063235F /* RoutesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesTableViewCell.swift; sourceTree = "<group>"; };
 		72B460FE28B974ED0063235F /* RoutesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutesTableViewCell.xib; sourceTree = "<group>"; };
 		72B4610328BAD40C0063235F /* abel-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "abel-regular.ttf"; sourceTree = "<group>"; };
+		72B4610828BB965B0063235F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		72B4610928BB965B0063235F /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		72B4610F28BCCFBA0063235F /* PageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneViewController.swift; sourceTree = "<group>"; };
+		72B4611028BCCFBA0063235F /* PageOneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageOneViewController.xib; sourceTree = "<group>"; };
+		72B4611328BCD7FC0063235F /* PageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTwoViewController.swift; sourceTree = "<group>"; };
+		72B4611428BCD7FC0063235F /* PageTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageTwoViewController.xib; sourceTree = "<group>"; };
+		72B4611928BCD8790063235F /* PageThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageThreeViewController.swift; sourceTree = "<group>"; };
+		72B4611A28BCD8790063235F /* PageThreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageThreeViewController.xib; sourceTree = "<group>"; };
+		72B4611F28BCEAD80063235F /* RouteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteController.swift; sourceTree = "<group>"; };
 		833A204F3F672BAC12BC2B73 /* Pods_XBike_XBikeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBike_XBikeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9842A4979F1F4C44194C8649 /* Pods-XBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBikeTests.release.xcconfig"; path = "Target Support Files/Pods-XBikeTests/Pods-XBikeTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBB05EAE80455B5A542371A8 /* Pods_XBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +151,7 @@
 		720AD6D328A6F75500FF6F5D /* XBike */ = {
 			isa = PBXGroup;
 			children = (
-				724B092F28A8487900F07692 /* ViewModel */,
+				72B4611E28BCEA7E0063235F /* Controller */,
 				724B092E28A8486B00F07692 /* View */,
 				724B092D28A8486300F07692 /* Model */,
 				724B092928A847CD00F07692 /* Utilities */,
@@ -185,20 +203,16 @@
 		724B092E28A8486B00F07692 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72B4610E28BCCF9A0063235F /* Pages */,
 				72B4610128BAD08E0063235F /* Cell */,
 				724B093628A9998B00F07692 /* CounterViewController.swift */,
 				724B093728A9998B00F07692 /* CounterViewController.xib */,
 				729F6C6F28A9AB9D00277473 /* ProgressViewController.swift */,
+				72B4610828BB965B0063235F /* OnboardingViewController.swift */,
+				72B4610928BB965B0063235F /* OnboardingViewController.xib */,
 				720AD6D828A6F75500FF6F5D /* ViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		724B092F28A8487900F07692 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		72B4610128BAD08E0063235F /* Cell */ = {
@@ -216,6 +230,27 @@
 				72B4610328BAD40C0063235F /* abel-regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		72B4610E28BCCF9A0063235F /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				72B4610F28BCCFBA0063235F /* PageOneViewController.swift */,
+				72B4611028BCCFBA0063235F /* PageOneViewController.xib */,
+				72B4611328BCD7FC0063235F /* PageTwoViewController.swift */,
+				72B4611428BCD7FC0063235F /* PageTwoViewController.xib */,
+				72B4611928BCD8790063235F /* PageThreeViewController.swift */,
+				72B4611A28BCD8790063235F /* PageThreeViewController.xib */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		72B4611E28BCEA7E0063235F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				72B4611F28BCEAD80063235F /* RouteController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		919125BFC0BF9B2951976A2A /* Frameworks */ = {
@@ -350,11 +385,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B4611628BCD7FC0063235F /* PageTwoViewController.xib in Resources */,
 				720AD6E128A6F75700FF6F5D /* LaunchScreen.storyboard in Resources */,
 				720AD6DE28A6F75700FF6F5D /* Assets.xcassets in Resources */,
 				720AD6DC28A6F75500FF6F5D /* Main.storyboard in Resources */,
 				724B093928A9998B00F07692 /* CounterViewController.xib in Resources */,
+				72B4611C28BCD8790063235F /* PageThreeViewController.xib in Resources */,
 				72B4610028B974ED0063235F /* RoutesTableViewCell.xib in Resources */,
+				72B4610B28BB965B0063235F /* OnboardingViewController.xib in Resources */,
+				72B4611228BCCFBA0063235F /* PageOneViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,8 +528,13 @@
 				720AD6D528A6F75500FF6F5D /* AppDelegate.swift in Sources */,
 				729F6C7028A9AB9D00277473 /* ProgressViewController.swift in Sources */,
 				720AD6D728A6F75500FF6F5D /* SceneDelegate.swift in Sources */,
+				72B4612028BCEAD80063235F /* RouteController.swift in Sources */,
+				72B4610A28BB965B0063235F /* OnboardingViewController.swift in Sources */,
+				72B4611528BCD7FC0063235F /* PageTwoViewController.swift in Sources */,
 				724B093528A8759100F07692 /* Utilities.swift in Sources */,
+				72B4611128BCCFBA0063235F /* PageOneViewController.swift in Sources */,
 				724B092B28A847E200F07692 /* Constants.swift in Sources */,
+				72B4611B28BCD8790063235F /* PageThreeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,9 +718,13 @@
 				DEVELOPMENT_TEAM = 2TVDUZYS22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XBike/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -704,9 +752,13 @@
 				DEVELOPMENT_TEAM = 2TVDUZYS22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XBike/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Necesitamos usar su localización para que pueda observar de una mejor manera sus avances.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

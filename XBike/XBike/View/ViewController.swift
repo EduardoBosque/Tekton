@@ -18,13 +18,28 @@ class ViewController: UIViewController {
     var distance = kEmptyString
     var origin = kEmptyString
     var destination = kEmptyString
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         pin.isHidden = true
         
         getLocation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let defaults = UserDefaults.standard
+        let showed = defaults.bool(forKey: kOnboarding)
+
+        if !showed {
+            let onboarding = OnboardingViewController()
+            onboarding.modalPresentationStyle = .fullScreen
+            self.present(onboarding, animated: true)
+            
+            defaults.set(true, forKey: kOnboarding)
+        }
     }
     
     func configureLocation(location: CLLocationCoordinate2D) {
@@ -58,49 +73,20 @@ class ViewController: UIViewController {
     }
     
     func route(position: CLLocationCoordinate2D){
-
+        
         guard let origin = locationManager.location?.coordinate else {
             return
         }
-        
-        let urlString = Utilities.urlRoute(origin: origin, destination: position)
-        let url = URL(string: urlString)
-        
-        URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-            if(error != nil){
-                print("error")
-            }else{
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
-                    let routes = json["routes"] as! NSArray
-
-                    OperationQueue.main.addOperation({
-
-                        for route in routes
-                        {
-                            let routeOverviewPolyline: NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
-                            let points = routeOverviewPolyline.object(forKey: "points")
-                            let path = GMSPath.init(fromEncodedPath: points! as! String)
-                            let polyline = GMSPolyline.init(path: path)
-                            polyline.strokeWidth = 3
-
-                            let legs: Array = (route as! NSDictionary).value(forKey: "legs") as! Array<Any>
-                            let distance = (legs.first as AnyObject).value(forKey: "distance") as! Dictionary<String,Any>
-                            self.distance = distance["text"] as! String
-                            
-                            polyline.map = self.mapView
-
-                        }
-                    })
-                } catch let error as NSError{
-                    print("error:\(error)")
-                }
-            }
-        }).resume()
+            
+        let line = RouteController()
+        line.route(origin: origin, position: position, mapView: self.mapView) { distance in
+            self.distance = distance
+        }
     }
     
     @IBAction func addTapped(_ sender: Any) {
         pin.isHidden = false
+        
     }
 }
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="abel-regular.ttf">
+            <string>Abel-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PageOneViewController" customModule="XBike" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extremely simple to use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n5-28-7ul">
+                    <rect key="frame" x="107" y="353" width="200" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="AUd-2l-ck9"/>
+                        <constraint firstAttribute="height" constant="30" id="K26-Oc-6iU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gJW-c4-Jok">
+                    <rect key="frame" x="157" y="151" width="100" height="98"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="b3f-1D-a2N"/>
+                        <constraint firstAttribute="width" constant="100" id="prl-kF-PRn"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="0.55686274509803924" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="4n5-28-7ul" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="K4d-sG-sGo"/>
+                <constraint firstItem="gJW-c4-Jok" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U6u-if-adQ"/>
+                <constraint firstItem="gJW-c4-Jok" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="150" id="XW0-dm-ka2"/>
+                <constraint firstItem="4n5-28-7ul" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sKQ-HG-H2a"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="140"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
+    </resources>
+</document>
