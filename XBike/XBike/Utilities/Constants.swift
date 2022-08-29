@@ -7,5 +7,12 @@
 
 import Foundation
 
-let kGoogleMapsAPI = "AIzaSyAlfga-I5pqLKviLlr4vQfz9MZJztgrcPs"
-
+let kGoogleMapsAPI = "AIzaSyADuEonulqcTrVsJiQ42HPNSrAiDWROEDQ"
+let kRoutes = "routes"
+let kEmptyString = ""
+let kOnboarding = "onboarding"
+let kPolyline = "overview_polyline"
+let kPoints = "points"
+let kLegs = "legs"
+let kText = "text"
+let kDistance = "distance"
