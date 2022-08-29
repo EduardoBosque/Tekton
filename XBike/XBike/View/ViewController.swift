@@ -105,11 +105,7 @@ extension ViewController: GMSMapViewDelegate {
             alert.view.frame = .zero
             self.view.addSubview(alert.initialAlert)
             alert.didMove(toParent: self)
-        
-            willMove(toParent: nil)
-            alert.view.removeFromSuperview()
-            removeFromParent()
-                        
+                                
             alert.initialAlert.translatesAutoresizingMaskIntoConstraints = false
             let bottom = alert.initialAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
             let center = alert.initialAlert.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -173,11 +169,7 @@ extension ViewController: SaveInformation {
         alert.view.frame = .zero
         self.view.addSubview(alert.messageView)
         alert.didMove(toParent: self)
-    
-        willMove(toParent: nil)
-        alert.view.removeFromSuperview()
-        removeFromParent()
-        
+            
         alert.messageView.translatesAutoresizingMaskIntoConstraints = false
         let centerX = alert.messageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         let centerY = alert.messageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
